@@ -1,0 +1,20 @@
+<section class="elections">
+  <h3 class="title">Active Elections On <span class="date"></span></h2>
+  <div class="election-list">
+
+  </div>
+</section>
+
+<script type="text/x-handlebars-template" id="election-list-template">
+  \{{#each elections}}
+  <div id="election-\{{id}}" class="\{{status}}">
+    <div class="title \{{status}}">
+      \{{#ifequal status 'inactive'}}
+        <span class="error hidden">You already voted this one! Calculating result...</span>
+      \{{/ifequal}}
+      <span>\{{title}}</span>
+      <span class="\{{status}}"></span>
+    </div>
+  </div>
+  \{{/each}}
+</script>

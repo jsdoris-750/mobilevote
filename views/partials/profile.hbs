@@ -1,0 +1,10 @@
+
+<section class="profile">
+  {{>elections}}
+  {{>results}}
+  {{#if user}}
+    <script>
+      window.user = {{{ toJSON user }}};
+    </script>
+  {{/if}}
+</section>

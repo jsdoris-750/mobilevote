@@ -1,0 +1,39 @@
+<section class="register">
+  <h2>
+    <span>{{title}}</span>
+  </h2>
+
+  <form action="register" method="POST" class="form">
+    {{#if err}}
+    <div class="error">
+      <span>{{err.message}}</span>
+    </div>
+    {{/if}}
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input name="email" aria-label="email" type="text" placeholder="Enter email..." />
+    </div>
+    <div class="form-group">
+      <label for="firstName">First Name:</label>
+      <input name="firstName" aria-label="firstName" type="text" placeholder="Enter first name..." />
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name:</label>
+      <input name="lastName" aria-label="lastName" type="text" placeholder="Enter last name..." />
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input name="password" aria-label="password" type="password" placeholder="Enter password..." />
+    </div>
+    <div class="form-group">
+      <label for="password2">Confirm Password:</label>
+      <input name="password2" aria-label="confirm password" type="password" placeholder="Re-enter password..." />
+    </div>
+    <div class="form-group">
+      <label for="pin">PIN:</label>
+      <input name="pin" aria-label="pin" type="number" placeholder="Enter PIN..." />
+    </div>
+    <button type="submit">Register</button>
+  </form>
+</section>

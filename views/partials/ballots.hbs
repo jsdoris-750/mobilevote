@@ -1,0 +1,62 @@
+<section class="ballots">
+  <div class="closeBtn">&times;</div>
+  <form action="/ballots" method="POST" class="form">
+    <div class="form-fields"></div>
+    <button type="submit">Submit</button>
+  </form>
+</section>
+
+<script type="text/x-handlebars-template" id="ballot-template">
+  \{{#each questions}}
+    <div class="question">
+      <h3 class="title" data-election="\{{election_id}}">\{{title}}</h3>
+      <p>\{{description}}</p>
+      \{{#ifequal type 1}}
+        \{{#each options}}
+          \{{#ifequal type "system"}}
+          <div class="option">
+            <input name="option\{{@index}}-group\{{../group_id}}-type1" type="number" required/>
+            <label for="option\{{@index}}">
+              \{{#each value}}
+                \{{ this }}\{{#unless @last}} <br/>\{{/unless}}
+              \{{/each}}
+            </label>
+          </div>
+          \{{/ifequal}}
+          \{{#ifequal type "custom"}}
+          <div class="option">
+            <input name="option\{{@index}}-group\{{../group_id}}-type1" type="number"/>
+            <input name="option\{{@index}}-group\{{../group_id}}-custom" type="text"/>
+          </div>
+          \{{/ifequal}}
+        \{{/each}}
+      \{{/ifequal}}
+      \{{#ifequal type 2}}
+        <p>Unexpired Term(Vote in one oval)</p>
+        \{{#each options}}
+          <div class="option">
+            <input type="radio" name="option-group\{{../group_id}}-type2" id="option\{{@index}}-\{{../group_id}}" \{{#if @first}}required\{{/if}}/>
+            <label for="option\{{@index}}-group\{{../group_id}}">\{{value}}</label>
+          </div>
+        \{{/each}}
+      \{{/ifequal}}
+      \{{#ifequal type 3}}
+        <p>Vote For Two</p>
+        \{{#each options}}
+          \{{#ifequal type "system"}}
+          <div class="option">
+            <input type="checkbox" name="option\{{@index}}-group\{{../group_id}}-type3" id="option\{{@index}}-\{{../group_id}}"/>
+            <label id="option\{{@index}}-group\{{../group_id}}">\{{value}}</label>
+          </div>
+          \{{/ifequal}}
+          \{{#ifequal type "custom"}}
+          <div class="option">
+            <input type="checkbox" name="option\{{@index}}-group\{{../group_id}}-type3" id="option\{{@index}}-group\{{../group_id}}"/>
+            <input name="option\{{@index}}-group\{{../group_id}}-custom" type="text"/>
+          </div>
+          \{{/ifequal}}
+        \{{/each}}
+      \{{/ifequal}}
+    </div>
+  \{{/each}}
+</script>

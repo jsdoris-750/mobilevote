@@ -1,0 +1,23 @@
+<section class="login">
+  <h2>
+    <span>{{title}}</span>
+  </h2>
+
+  <form action="login" method="POST" class="form">
+    {{#if err}}
+    <div class="error">
+      <span>{{err.message}}</span>
+    </div>
+    {{/if}}
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input name="email" type="text" placeholder="Enter email..." />
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input name="password" type="password" placeholder="Enter password..." />
+    </div>
+    <button type="submit">Sign In</button>
+  </form>
+</section>
