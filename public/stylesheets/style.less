@@ -244,12 +244,14 @@ h2, h3, h2 span, h3 span {
           }
 
           &.inactive:after {
-            content:'\2713';
-            color:#ffc305;
+            content: '';
             display: inline-block;
-            font-size:14px;
-            font-weight:bold;
-            margin-left:5px;
+            width: 7px;
+            height: 14px;
+            border: solid #ffc305;
+            border-width: 0 3px 3px 0;
+            transform: rotate(45deg);
+            margin-left: 10px;
           }
         }
       }

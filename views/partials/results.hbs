@@ -1,17 +1,21 @@
 <section class="results">
-  <h3 class="title">View Results</h2>
-  <div class="result-list">
 
-  </div>
 </section>
 
 <script type="text/x-handlebars-template" id="result-list-template">
+  \{{#if results }}
+    <h3 class="title">View Results</h3>
+    <div class="result-list">
+  \{{/if}}
   \{{#each results}}
-  <div id="result-\{{id}}">
-    <div class="title">
-      <span>\{{title}}</span>
-      <span class="date">\{{date}}</span>
+    <div id="result-\{{id}}">
+      <div class="title">
+        <span>\{{title}}</span>
+        <span class="date">\{{date}}</span>
+      </div>
     </div>
-  </div>
   \{{/each}}
+  \{{#if results }}
+    </div>
+  \{{/if}}
 </script>

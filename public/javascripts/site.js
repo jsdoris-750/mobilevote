@@ -11,9 +11,6 @@
   $(document).ready(function () {
 
     if (window.user) {
-      var today = new Date();
-      $('.date').text((today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear());
-
       $.getJSON('/elections/active', function (ejson) {
         var source = $("#election-list-template").html();
         var template = Handlebars.compile(source);
@@ -32,7 +29,10 @@
             status: voted.length ? 'inactive' : 'active'
           });
         });
-        $(".election-list").html(template({ elections: elections }));
+        $(".elections").html(template({ elections: elections }));
+
+        var today = new Date();
+        $('.date').text((today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear());
 
         $('[id^=election-]').on('click', function(e){
           e.preventDefault();
@@ -80,7 +80,7 @@
             date: r.election_date,
           });
         });
-        $(".result-list").html(template({ results: results }));
+        $(".results").html(template({ results: results }));
       });
 
 

@@ -15,7 +15,9 @@
         \{{#each options}}
           \{{#ifequal type "system"}}
           <div class="option">
-            <input name="option\{{@index}}-group\{{../group_id}}-type1" type="number" required/>
+            <input name="option\{{@index}}-group\{{../group_id}}-type1" aria-label="\{{#each value}}
+                \{{ this }}\{{#unless @last}} <br/>\{{/unless}}
+              \{{/each}}" type="number" required/>
             <label for="option\{{@index}}">
               \{{#each value}}
                 \{{ this }}\{{#unless @last}} <br/>\{{/unless}}
@@ -25,8 +27,8 @@
           \{{/ifequal}}
           \{{#ifequal type "custom"}}
           <div class="option">
-            <input name="option\{{@index}}-group\{{../group_id}}-type1" type="number"/>
-            <input name="option\{{@index}}-group\{{../group_id}}-custom" type="text"/>
+            <input name="option\{{@index}}-group\{{../group_id}}-type1" aria-label="enter rank number" type="number"/>
+            <input name="option\{{@index}}-group\{{../group_id}}-custom" aria-label="enter your candidate" type="text"/>
           </div>
           \{{/ifequal}}
         \{{/each}}
@@ -35,8 +37,8 @@
         <p>Unexpired Term(Vote in one oval)</p>
         \{{#each options}}
           <div class="option">
-            <input type="radio" name="option-group\{{../group_id}}-type2" id="option\{{@index}}-\{{../group_id}}" \{{#if @first}}required\{{/if}}/>
-            <label for="option\{{@index}}-group\{{../group_id}}">\{{value}}</label>
+            <input type="radio" name="option-group\{{../group_id}}-type2" id="option\{{@index}}-\{{../group_id}}" aria-label="\{{value}}" \{{#if @first}}required\{{/if}}/>
+            <label for="option\{{@index}}-group\{{../group_id}}" aria-label="\{{value}}">\{{value}}</label>
           </div>
         \{{/each}}
       \{{/ifequal}}
@@ -45,14 +47,14 @@
         \{{#each options}}
           \{{#ifequal type "system"}}
           <div class="option">
-            <input type="checkbox" name="option\{{@index}}-group\{{../group_id}}-type3" id="option\{{@index}}-\{{../group_id}}"/>
+            <input type="checkbox" name="option\{{@index}}-group\{{../group_id}}-type3" aria-label="\{{value}}" id="option\{{@index}}-\{{../group_id}}"/>
             <label id="option\{{@index}}-group\{{../group_id}}">\{{value}}</label>
           </div>
           \{{/ifequal}}
           \{{#ifequal type "custom"}}
           <div class="option">
-            <input type="checkbox" name="option\{{@index}}-group\{{../group_id}}-type3" id="option\{{@index}}-group\{{../group_id}}"/>
-            <input name="option\{{@index}}-group\{{../group_id}}-custom" type="text"/>
+            <input type="checkbox" name="option\{{@index}}-group\{{../group_id}}-type3" aria-label="select checkbox" id="option\{{@index}}-group\{{../group_id}}"/>
+            <input name="option\{{@index}}-group\{{../group_id}}-custom" aria-label="enter your candidate" type="text"/>
           </div>
           \{{/ifequal}}
         \{{/each}}
