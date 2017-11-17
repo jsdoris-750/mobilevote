@@ -56,10 +56,10 @@ module.exports = (app, debug) => {
     (req, email, password, done) => {
       User.findOne({ email: email })
         .then((user) => {
-          var err;
+          var err = new Error('Either email or password is incorrect.');
+          err.status = 400;
           if (!user) {
-            err = new Error('User not found.');
-            err.status = 400;
+            //user doesn't exist
             return done(err);
           }
 
@@ -68,8 +68,7 @@ module.exports = (app, debug) => {
             return done(null, user);
           }
 
-          err = new Error('Wrong password.');
-          err.status = 400;
+          // wrong password
           return done(err);
 
         })
