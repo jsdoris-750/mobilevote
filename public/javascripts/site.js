@@ -73,7 +73,6 @@
         var results = [];
 
         $.each(rjson, function (i, r) {
-
           results.push({
             id: r.id,
             title: r.title,
@@ -81,6 +80,8 @@
           });
         });
         $(".results").html(template({ results: results }));
+
+        if(!results.length) $('.results').hide();
       });
 
 
@@ -134,6 +135,9 @@
           data: submitData,
           success: function() {
             $('.ballots .closeBtn').trigger('click');
+            var $election = $('#election-' + electionId);
+            $election.removeClass('active').addClass('inactive');
+            $election.find('.active').removeClass('active').addClass('inactive');
           }
         });
       });

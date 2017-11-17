@@ -10,9 +10,7 @@
   \{{#each elections}}
     <div id="election-\{{id}}" class="\{{status}}">
       <div class="title \{{status}}">
-        \{{#ifequal status 'inactive'}}
-          <span class="error hidden">You already voted this one! Calculating result...</span>
-        \{{/ifequal}}
+        <span class="error hidden">You already voted this one! Calculating result...</span>
         <span>\{{title}}</span>
         <span class="\{{status}}"></span>
       </div>
